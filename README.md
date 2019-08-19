@@ -105,7 +105,31 @@ https://w2.cleardb.net/
         |-- index.html                  // プロジェクトのエントリーポイント
         |-- package.json
 
-### サーバサイド        
+### サーバサイド 
+        
+        |-- gradle                      // gradle
+        |   |-- wrapper 
+        |-- src                      
+        |   |-- main
+        |   |   |-- java
+        |   |   |   |--com
+        |   |   |      |-- alien
+        |   |   |          |-- TodoList
+        |   |   |              |-- TodoListApplication.java   // main function
+        |   |   |              |-- config
+        |   |   |              |-- controller   //Interface
+        |   |   |              |-- pojo         //TodoItem Class
+        |   |   |              |-- repository
+        |   |   |-- resources
+        |   |   |-- |--application.properties
+        |   |   |-- |--static           //静的なソースを管理するディレクトリ（フロントエンド）
+        |   |   |-- |--templates
+        |   |-- test                
+        |-- build.gradle                        
+        |-- gradlew
+        |-- gradle.bat
+        |-- settings.gradle
+      
 
 ### 機能
 * `ToDo`一覧表示、新しい`ToDo`を作成する
