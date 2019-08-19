@@ -1,0 +1,1 @@
+Web: java -jar build/libs/TodoList-0.0.1-SNAPSHOT.jar
