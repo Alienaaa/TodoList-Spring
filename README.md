@@ -152,27 +152,19 @@ https://w2.cleardb.net/
 
 ## 開発環境のセットアップ手順
 
-[こちら](https://nodejs.org/ja/)にNode.jsをインストールする
-
 ``` bash
 # リポジトリをローカルへクローンする
-git clone https://github.com/Alienaaa/Todo-list.git
+git https://github.com/Alienaaa/TodoList-Spring.git
 
-cd Todo-list
+cd TodoList-Spring
 
-# 必要なパッケージをインストールする
-npm install
+#run
+# サーバーを起動する(localhost:9000)
 
-# サーバーを起動する(localhost:3000)
-cd server
-node index.js
-
-# クライアントサードを起動
-cd ..
-npm run dev
-
-# localhost:8080をオーブンする
+# localhost:9000/index.html をオーブンする
 ```
+> フロントエンド Dev は　[こちら](https://github.com/Alienaaa/TodoList-vue)　に参照してお願いします。
+
 ## 今まで出来てないところ
 * Template Engine を利用する（インターン開始まで作り直す予定）
 * Spring bootで日本語や中国語が文字化け問題（いつくの提案を試したが、なんだか解決出来なかった。今は試行錯誤中。）
