@@ -11,12 +11,7 @@ Todoリスト
   * [IDE](#ide)
 * [全体の設計・構成](#全体の設計構成)
   * [機能](#機能)
-  * [データベースの設計](#データベースの設計)
-  * [ルータ設計](#ルータ設計)
-  * [API提供](#api提供)
-    * [GET Request](#get-request)
-    * [POST Request](#post-request)
-  * [フロントエンドの各ファイル説明](#フロントエンドの各ファイル説明)
+  
 * [開発環境のセットアップ手順](#開発環境のセットアップ手順)
 * [今まで出来てないところ](#今まで出来てないところ)
 * [動作確認URL](#動作確認url)
@@ -75,7 +70,7 @@ https://w2.cleardb.net/
 `IntelliJ IDEA`
 
 ## 全体の設計・構成
-###フロントエンド
+### フロントエンド
 
         |-- build                       // ビルドに関するディレクトリ
         |   |-- build.js
@@ -114,7 +109,9 @@ https://w2.cleardb.net/
         |-- .eslistrc.js                // ESLint設定ファイル
         |-- index.html                  // プロジェクトのエントリーポイント
         |-- package.json
-        
+
+### サーバサイド        
+
 ### 機能
 * `ToDo`一覧表示、新しい`ToDo`を作成する
 
@@ -132,111 +129,6 @@ https://w2.cleardb.net/
 
 ![image](https://github.com/Alienaaa/TodoList-Spring/blob/master/Demo_img/searchfortodo.gif)
 
-
-
-### API提供
-#### GET Request
-* `/api/getallTodolist` 該当ユーザのすべてのリストを取得する
-  * 入力
-    * | 内容       | フィールド名  | データ型  |
-      |:---------:|:-----------:|:--------:|
-      | ユーザ名 | user   | String |
-   * 出力
-     * `response.data`: 作成日が新しい順にを表示する`ToDoリスト`の配列
-
-* `/api/getallTodoitem` 該当ユーザが選定されたToDoリストのすべてのToDoを取得する
-  * 入力
-    * | 内容       | フィールド名  | データ型  |
-      |:---------:|:-----------:|:--------:|
-      | TodoリストID | _id   | ObjectId |
-      | ユーザ名 | user   | String |
-   * 出力
-     * `response.data[0]`: 作成日が新しい順にを表示する`ToDo`の配列
-
-* `/api/searchTodolist` 該当ユーザのkeywordを含まれているToDoリストを取得する
-  * 入力
-    * | 内容       | フィールド名  | データ型  |
-      |:---------:|:-----------:|:--------:|
-      | キーワード | keyword   | String |
-      | ユーザ名 | user   | String |
-   * 出力
-     * `response.data`: 作成日が新しい順にを表示する keywordを含まれている`ToDoリスト`の配列
-
-* `/api/searchTodoitem` 該当ユーザのkeywordを含まれているToDoを取得する
-  * 入力
-    * | 内容       | フィールド名  | データ型  |
-      |:---------:|:-----------:|:--------:|
-      | キーワード | keyword   | String |
-      | ユーザ名 | user   | String |
-   * 出力
-     * `response.data`: 作成日が新しい順にを表示する keywordを含まれている`ToDo`の配列
-
-* `/api/login` ユーザ認証は成功するかどうかを確認する
-  * 入力
-    * | 内容       | フィールド名  | データ型  |
-      |:---------:|:-----------:|:--------:|
-      | ユーザ名 | name   | String |
-      | パスワード | pass   | String |
-   * 出力
-     *  |        | status  | msg  | data
-        |:---------:|:-----------:|:--------:|:--------:|
-        | 認証成功の場合 | 1000   | ユーザ認証成功です。|ユーザデータ |
-        | ユーザ名は登録されてない場合 | 1002   |ユーザ登録されてません。| null |
-        | パスワードは誤りがある場合 | 1001   |パスワードの入力に誤りがあります。| null |<br>
-
-#### POST Request
-* `/api/createTodolist` 該当ユーザの新しいToDoリストを作成する
-  * 入力
-    * | 内容       | フィールド名  | データ型  |
-      |:---------:|:-----------:|:--------:|
-      | TodoリストID | _id         | ObjectId |
-      | ToDoリスト名 | title        | String   |
-      | ToDoリスト作成日| listCreateData | Date   |
-      | ユーザ名       | user   | String     |　
-      | ToDoを格納する配列 | TodoItem | ToDoを格納する配列  |
-* `/api/createTodoitem` 該当ユーザが選定したToDoリストで、新しいToDoを作成する
-  * 入力
-    * | 内容       | フィールド名  | データ型  |
-      |:---------:|:-----------:|:--------:|
-      | TodoリストID | _id         | ObjectId |
-      | ToDoリスト名    | title        | String   |
-      | ToDo名     | TodoTitle | String     |
-      | 期限       | TodoDDL   | Date     |
-      | ToDo作成日 | TodoCreateData | Date  |
-      | 完了/未完了 | isDone | Boolean  |
-* `/api/deleteTodolist` 該当ユーザが選定したToDoリストを削除する
-  * 入力
-    * | 内容       | フィールド名  | データ型  |
-      |:---------:|:-----------:|:--------:|
-      | TodoリストID | _id         | ObjectId |
-      | ユーザ名       | user   | String     |
-
-* `/api/deleteTodoitem` 該当ユーザが選定したToDoリストのToDoを削除する
-  * 入力
-    * | 内容       | フィールド名  | データ型  |
-      |:---------:|:-----------:|:--------:|
-      | TodoリストID | _id         | ObjectId |
-      | ユーザ名       | user   | String     |
-      | ToDo名     | TodoTitle | String     |
-* `/api/changeIsdone` 該当ユーザが選定したToDoリストのToDoの`完了/未完了`変更する
-  * 入力
-    * | 内容       | フィールド名  | データ型  |
-      |:---------:|:-----------:|:--------:|
-      | TodoリストID | _id         | ObjectId |
-      | ユーザ名       | user   | String     |
-      | ToDo名     | TodoTitle | String     |
-      | 完了/未完了 | isDone | Boolean  |
-* `/api/logup` 新規ユーザ登録
-  * 入力
-    * | 内容       | フィールド名  | データ型  |
-      |:---------:|:-----------:|:--------:|
-      | ユーザ名 | name   | String |
-      | パスワード | pass   | String |
-  * 出力
-    * |        | status  | msg  | data
-      |:---------:|:-----------:|:--------:|:--------:|
-      | 登録成功の場合 | 1000   | ユーザログアップ成功です。|被ったユーザデータ |
-      | ユーザ名は既存ユーザに被った場合 | 1001   |このユーザ名はすでに登録されました。| ユーザデータ |
 
 
 ## 開発環境のセットアップ手順
@@ -263,11 +155,11 @@ npm run dev
 # localhost:8080をオーブンする
 ```
 ## 今まで出来てないところ
-* リスト名/ToDo名を編集する機能を実装
-* Inputとボタンの様式適応性調整
-* 締め切り前日の提示機能を作る
+* Template Engine を利用する（インターン開始まで作り直す予定）
+* Spring bootで日本語や中国語が文字化け問題（いつくの提案を試したが、なんだか解決出来なかった。今は試行錯誤中。）
+* 検索ページの並び順
 ## 動作確認URL
 >Supported by [Heroku](https://www.heroku.com/)<br>
-https://todolist-alien.herokuapp.com/
+https://todolist-spring.herokuapp.com/index.html
 
 `IE 11` `Firefox 66.0.3` `Microsoft Edge` `Chrome  73.0.3683.103` `Safari  9.0.2` 動作チェック済み
