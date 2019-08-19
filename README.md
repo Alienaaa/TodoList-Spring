@@ -167,7 +167,7 @@ cd TodoList-Spring
 
 ## 今まで出来てないところ
 * Template Engine を利用する（インターン開始まで作り直す予定）
-* Spring bootで日本語や中国語が文字化け問題（いつくの提案を試したが、なんだか解決出来なかった。今は試行錯誤中。）
+* Spring bootで日本語や中国語が文字化け問題（いつくの方法を試したが、なんだか解決出来なかった。今は試行錯誤中。）
 * 検索ページの並び順
 ## 動作確認URL
 >Supported by [Heroku](https://www.heroku.com/)<br>
