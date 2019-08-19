@@ -16,7 +16,7 @@ public class TodoItemController {
     private TodoItemRepository todoitemRepository;
 
     // insert new test data
-    @PostMapping(path="/api/createTodoitem")
+    @PostMapping(path="/api/createTodoitem",produces="text/plain;charset=UTF-8")
     public @ResponseBody String addNewTodo(@RequestBody TodoItem todoItem) {
 
         // TodoItem todo = new TodoItem();
@@ -45,7 +45,7 @@ public class TodoItemController {
 
     // get all test data
     @GetMapping(path="/api/getallTodoitem")
-    public  Iterable<TodoItem> getAllTodoitem() {
+    public @ResponseBody List<TodoItem> getAllTodoitem() {
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         return todoitemRepository.findAll(sort);
     }
