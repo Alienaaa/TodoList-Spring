@@ -1,6 +1,6 @@
 Todoリスト
 ===
-> ToDoリストやToDoを作成、管理、検索できるウェブサイトです。ユーザ登録、ログイン、ログアウト機能も実装しています。
+> ToDoを作成、管理、検索できるウェブサイトです。
 
 * [概要](#概要)
 * [使用した技術要素](#使用した技術要素)
@@ -76,6 +76,7 @@ https://w2.cleardb.net/
 
 ## 全体の設計・構成
 ###フロントエンド
+
         |-- build                       // ビルドに関するディレクトリ
         |   |-- build.js
         |   |-- check-version.js
@@ -113,34 +114,24 @@ https://w2.cleardb.net/
         |-- .eslistrc.js                // ESLint設定ファイル
         |-- index.html                  // プロジェクトのエントリーポイント
         |-- package.json
+        
 ### 機能
-* `ToDoリスト`一覧表示、新しい`ToDoリスト`を作成する
+* `ToDo`一覧表示、新しい`ToDo`を作成する
 
-![image](https://github.com/Alienaaa/Todo-list/blob/master/ReadMe_img/createTodolist.gif)
+![image](https://github.com/Alienaaa/TodoList-Spring/blob/master/Demo_img/addnewtodo.gif)
 
-* `ToDo`一覧表示、新しい`ToDo`を作成して、`完了/未完了`の状態を変更する
+* `完了/未完了`の状態を変更する
 
-![image](https://github.com/Alienaaa/Todo-list/blob/master/ReadMe_img/createTodo.gif)
+![image](https://github.com/Alienaaa/TodoList-Spring/blob/master/Demo_img/changebutton.gif)
 
-* 登録された`ToDo`や`ToDoリスト`について検索する
+* `ToDo`を更新する
 
-![image](https://github.com/Alienaaa/Todo-list/blob/master/ReadMe_img/search.gif)
+![image](https://github.com/Alienaaa/TodoList-Spring/blob/master/Demo_img/edittodo.gif)
 
-* **[独自]** ユーザ新規登録
+* `ToDo`について検索する
 
-![image](https://github.com/Alienaaa/Todo-list/blob/master/ReadMe_img/Register.gif)
+![image](https://github.com/Alienaaa/TodoList-Spring/blob/master/Demo_img/searchfortodo.gif)
 
-* **[独自]** ユーザログインして、自分に属する`ToDoリスト`や`ToDo`を作成する（状態変更、検索もできる）
-
-![image](https://github.com/Alienaaa/Todo-list/blob/master/ReadMe_img/Login.gif)
-
-* **[独自]** ユーザログアウト、`public`状態を戻る
-
-![image](https://github.com/Alienaaa/Todo-list/blob/master/ReadMe_img/Logout.gif)
-
-* **[独自]** `ToDo`や`ToDoリスト`を削除する
-
-![image](https://github.com/Alienaaa/Todo-list/blob/master/ReadMe_img/deleteTodo%26Todolist.gif)
 
 
 ### API提供
